@@ -1,5 +1,6 @@
 package org.ulpgc.is1.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Group {
@@ -9,13 +10,14 @@ public class Group {
 
     public Group(String name) {
         this.name = name;
+        contacts = new ArrayList<Contact>();
     }
     public void addContact(Contact contact) {
         contacts.add(contact);
         contact.groupList.add(this);
     }
 
-    public void removeContact(Integer index) {
+    public void removeContact(int index) {
         contacts.get(index).groupList.remove(this);
         contacts.remove(index);
 
@@ -25,7 +27,7 @@ public class Group {
         return contacts.size();
     }
 
-    public Member getMember(int index) {
+    public Contact getMember(int index) {
         return contacts.get(index);
     }
 }

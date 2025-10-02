@@ -20,7 +20,7 @@ public class Main {
         trabajoGroup.addContact(contactToAdd);
 
         // 4. Imprimir por pantalla el número de contactos de la agenda.
-        System.out.println("Número de contactos en la agenda: " + agenda.contactCount);
+        System.out.println("Número de contactos en la agenda: " + Agenda.contactCount);
 
         // 5. Imprimir por pantalla el número de contactos del grupo “trabajo”.
         System.out.println("Número de contactos en el grupo 'trabajo': " + trabajoGroup.contactCount());
@@ -39,6 +39,6 @@ public class Main {
         // Probar a añadir un contacto duplicado
         System.out.println("\nIntentando añadir un contacto duplicado...");
         agenda.addPerson("John", "Doe", "111222333", "new.email@example.com", "New Street", 1, 1, "Newtown");
-        System.out.println("Número de contactos en la agenda: " + agenda.contactCount);
+        System.out.println("Número de contactos en la agenda: " + Agenda.contactCount);
     }
 }

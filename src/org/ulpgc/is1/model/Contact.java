@@ -1,5 +1,6 @@
 package org.ulpgc.is1.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public abstract class Contact {
@@ -12,6 +13,7 @@ public abstract class Contact {
         this.telephone = telephone;
         this.email = email;
         this.direccion = new Address(street, number, floor, city);
+        this.groupList = new ArrayList<Group>();
     }
 
     public String getTelephone() {
