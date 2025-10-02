@@ -16,10 +16,8 @@ public class Agenda {
     public void addPerson(String firstName, String lastName, String telephone, String email, String street, int number, int floor, String city) {
         Person person = new Person(telephone, email, street, number, floor, city, firstName, lastName);
         boolean check = true;
-        for (Contact i : contactList) {
-            Person p = (Person) i;
-            if (!p.equals(person)) ;
-            else {
+        for  (Contact contact : contactList) {
+            if (contact.getName().equals(person.getName())) {
                 check = false;
                 break;
             }
@@ -33,10 +31,8 @@ public class Agenda {
     public void addCompany(String telephone, String email, String street, int number, int floor, String city, String name, String description) {
         Company company = new Company(telephone, email, street, number, floor, city, name, description);
         boolean check = true;
-        for (Contact i : contactList) {
-            Company c = (Company) i;
-            if (!c.equals(company)) ;
-            else {
+        for  (Contact contact : contactList) {
+            if ((contact.getName().equals(company.getName()) && (contact.telephone.equals(company.telephone)))) {
                 check = false;
                 break;
             }
