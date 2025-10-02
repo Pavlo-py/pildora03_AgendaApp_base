@@ -12,9 +12,11 @@ public class Group {
     }
     public void addMember(Contact contact) {
         contacts.add(contact);
+        contact.groupList.add(this);
     }
 
     public void removeMember(Contact contact) {
         contacts.remove(contact);
+        contact.groupList.remove(this);
     }
 }
