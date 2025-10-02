@@ -5,8 +5,9 @@ import java.util.List;
 public class Agenda {
     List<Contact> contactList;
     List<Group> groupList;
+    public static Integer contactCount = 0;
 
-    public void addPerson(String telephone, String email, String street, int number, int floor, String city, String firstName, String lastName) {
+    public void addPerson(String firstName, String lastName, String telephone, String email, String street, int number, int floor, String city) {
         contactList.add(new Person(telephone, email, street, number, floor, city, firstName, lastName));
     }
 
@@ -14,20 +15,16 @@ public class Agenda {
         contactList.add(new Person(telephone, email, street, number, floor, city, name, description));
     }
 
-    public void addGroup(Contact contact, String groupName) {
+    public void addGroup(String groupName) {
         Group grupo = new Group(groupName);
-        if (groupList.contains(grupo)) {
-            if  (!grupo.contacts.contains(contact)) {
-                grupo.addMember(contact);
-            }
-        }
     }
 
-    public List getContactList() {
+    public List<Contact> getContactList() {
         return contactList;
     }
 
-    public List getGrouptList() {
+    public List<Group> getGroupList() {
         return groupList;
     }
+
 }

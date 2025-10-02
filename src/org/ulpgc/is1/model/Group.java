@@ -10,13 +10,22 @@ public class Group {
     public Group(String name) {
         this.name = name;
     }
-    public void addMember(Contact contact) {
+    public void addContact(Contact contact) {
         contacts.add(contact);
         contact.groupList.add(this);
     }
 
-    public void removeMember(Contact contact) {
-        contacts.remove(contact);
-        contact.groupList.remove(this);
+    public void removeContact(Integer index) {
+        contacts.get(index).groupList.remove(this);
+        contacts.remove(index);
+
+    }
+
+    public Integer contactCount() {
+        return contacts.size();
+    }
+
+    public Member getMember(int index) {
+        return contacts.get(index);
     }
 }
