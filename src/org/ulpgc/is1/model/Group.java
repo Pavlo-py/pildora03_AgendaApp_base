@@ -1,5 +1,7 @@
 package org.ulpgc.is1.model;
 
+import java.sql.Date;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,6 +17,8 @@ public class Group {
     public void addContact(Contact contact) {
         contacts.add(contact);
         contact.groupList.add(this);
+        Member member = new Member(contact,this);
+        member.members.add(member);
     }
 
     public void removeContact(int index) {
@@ -27,7 +31,13 @@ public class Group {
         return contacts.size();
     }
 
-    public Contact getMember(int index) {
-        return contacts.get(index);
+    public Member getMember(int index) {
+        Contact contact = contacts.get(index);
+        for (Member member : Member.members) {
+            if (member.contact == contact) {
+                return member;
+            }
+        }
+        return null;
     }
 }
